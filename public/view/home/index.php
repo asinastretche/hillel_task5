@@ -10,12 +10,14 @@
     <body>
     <p>"Welcome to the Home Page"</p>
     <table>
+        <?php foreach ($data as $key => $row) : ?>
         <tr>
-            <td> <?= $one ?></td>
-            <td> <?= $two ?></td>
-            <td> <?= $three ?></td>
-            <td> <?= $four ?></td>
+            <td><?= $row['id'] ?></td>
+            <td><?= $row['authorID'] ?></td>
+            <td><?= $row['title'] ?></td>
+            <td><?= $row['body'] ?></td>
         </tr>
+        <?php endforeach ?>
     </table>
     </body>
 </html>
