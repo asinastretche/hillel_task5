@@ -13,7 +13,7 @@
         <?php foreach ($data as $key => $row) : ?>
         <tr>
             <td><?= $row['id'] ?></td>
-            <td><?= $row['authorID'] ?></td>
+            <td><?= $row['author_id'] ?></td>
             <td><?= $row['title'] ?></td>
             <td><?= $row['body'] ?></td>
         </tr>

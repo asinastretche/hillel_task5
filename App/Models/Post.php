@@ -2,8 +2,18 @@
 
 namespace App\Models;
 
+use App\Orm\Select;
+
 class Post
 {
+    protected $tableName = 'post';
+    private Select $select;
+
+    public function __construct()
+    {
+        $this->select = new Select;
+    }
+
     public  function findOne()
     {
         return [
@@ -14,27 +24,9 @@ class Post
         ];
     }
 
-    public  function findAll()
+    public  function findAll() : ?array
     {
-        return [
-            [
-                'id' => 1,
-                'authorID' => 1,
-                'title' => 'title1',
-                'body' => 'body1'
-            ],
-            [
-                'id' => 2,
-                'authorID' => 2,
-                'title' => 'title2',
-                'body' => 'body2'
-            ],
-            [
-                'id' => 3,
-                'authorID' => 3,
-                'title' => 'title3',
-                'body' => 'body3'
-            ]
-        ];
+        $this->select->setTableName($this->tableName);
+        return $this->select->execute();
     }
 }
